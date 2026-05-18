@@ -26,4 +26,4 @@ jobs:
         uses: blue-build/github-action@v1
         with:
           recipe: 'config/recipe.yml'
-          disable_signing: true
+          build_opts: '--no-sign'
