@@ -25,5 +25,5 @@ jobs:
       - name: Build Image using BlueBuild
         uses: blue-build/github-action@v1
         with:
-          recipe: 'config/recipe.yml'
+          recipe: './config/recipe.yml'
           build_opts: '--no-sign'
