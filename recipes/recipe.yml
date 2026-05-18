@@ -15,5 +15,10 @@ modules:
       - newt
 
   - type: default-flatpaks
-    install:
-      - org.mozilla.firefox
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      repo-title: "Flathub (sys)"
+      install:
+        - org.mozilla.firefox
