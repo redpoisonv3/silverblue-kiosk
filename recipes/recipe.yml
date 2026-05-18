@@ -1,7 +1,6 @@
-# config/recipe.yml
 name: silverblue-kiosk
 description: Read-only automated Moonlight Kiosk terminal.
-base-image: quay.io/fedora-ostree-desktops/silverblue:stable
+base-image: quay.io/fedora-ostree-desktops/silverblue:40
 
 modules:
   - type: rpm-ostree
@@ -14,10 +13,9 @@ modules:
       - newt
 
   - type: files
-    source: .
 
   - type: flatpak
     remotes:
       flathub: https://dl.flathub.org/repo/flathub.flatpakrepo
     install:
-      - flathub:com.limelight_stream.Moonlight
+      - com.limelight_stream.Moonlight
