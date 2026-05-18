@@ -1,0 +1,12 @@
+[Unit]
+Description=Fetch Custom Silverblue OS Updates on Boot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/usr-local/bin/atomic-update.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

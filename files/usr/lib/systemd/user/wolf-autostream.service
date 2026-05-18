@@ -1,0 +1,13 @@
+[Unit]
+Description=Automated Wolf/Moonlight Kiosk
+After=display-manager.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/usr-local/bin/moonlight-kiosk.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
