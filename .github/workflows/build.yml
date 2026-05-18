@@ -1,12 +1,11 @@
-# .github/workflows/build.yml
 name: Build Custom Silverblue Kiosk Image
 on:
   schedule:
-    - cron: '0 0 * * 0' # Automatically recompiles every Sunday to capture upstream Fedora updates
+    - cron: '0 0 * * 0'
   push:
     branches:
       - main
-  workflow_dispatch: # Allows you to manually click "Build" inside GitHub at any time
+  workflow_dispatch:
 
 env:
   IMAGE_NAME: "silverblue-kiosk"
@@ -23,7 +22,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Image using BlueBuild
-        uses: blue-build/github-action@v1
+        uses: blue-build/github-action@v1.8.1
         with:
           recipe: 'recipe.yml'
           build_opts: '--no-sign'
+          working_directory: './'
