@@ -15,10 +15,8 @@ modules:
       - newt
 
   - type: default-flatpaks
-    notify: true
-    system:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
-      repo-title: "Flathub (sys)"
-      install:
-        - org.mozilla.firefox
+    configurations:
+      - scope: system
+        notify: false
+        install:
+          - com.limelight_stream.Moonlight
