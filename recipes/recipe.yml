@@ -1,6 +1,8 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: silverblue-kiosk
 description: Read-only automated Moonlight Kiosk terminal.
-base-image: quay.io/fedora-ostree-desktops/silverblue:40
+base-image: ghcr.io/ublue-os/silverblue-main
+image-version: 40
 
 modules:
   - type: rpm-ostree
@@ -12,10 +14,6 @@ modules:
       - xrandr
       - newt
 
-  - type: files
-
-  - type: flatpak
-    remotes:
-      flathub: https://dl.flathub.org/repo/flathub.flatpakrepo
+  - type: default-flatpaks
     install:
-      - com.limelight_stream.Moonlight
+      - org.mozilla.firefox
