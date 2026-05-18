@@ -1,0 +1,29 @@
+# .github/workflows/build.yml
+name: Build Custom Silverblue Kiosk Image
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Automatically recompiles every Sunday to capture upstream Fedora updates
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows you to manually click "Build" inside GitHub at any time
+
+env:
+  IMAGE_NAME: "silverblue-kiosk"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Image using BlueBuild
+        uses: blue-build/github-action@v1
+        with:
+          recipe: 'config/recipe.yml'
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
