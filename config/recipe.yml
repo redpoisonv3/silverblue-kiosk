@@ -14,7 +14,7 @@ modules:
       - newt
 
   - type: files
-    source: usr
+    source: .
 
   - type: flatpak
     remotes:
